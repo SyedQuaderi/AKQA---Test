@@ -1,5 +1,5 @@
 # AKQA---Test
-Fornt End Developer Test (Women's tops)
+Fornt End Developer Test (Women's tops page layout)
 
 Built Responsive Layout using Bootstrap 4 with SASS preprocessing and AngularJS.
 
