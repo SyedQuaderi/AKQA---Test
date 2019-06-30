@@ -5,15 +5,31 @@
   <title>MySassyApp</title>
   <link rel="icon" href="/src/fonts/syedportfolio.png"> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/styles.min.css">
+    <!--build:css css/styles.min.css-->
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="stylesheet" href="src/css/bootstrap.css">
+    <link rel="stylesheet" href="src/css/bootsnav.css">
+    <!--endbuild-->
     
-    <script src="js/main.min.js"></script>
+    <!--build:js js/main.min.js -->
+    <script src="src/js/angular.min.js"></script>
+    <script src="src/js/angular-messages.min.js"></script>
+    <script src="src/js/angular-resource.min.js"></script>
+    <script src="src/js/jQuery.js"></script>
+    <!-- endbuild -->    
 
-    <script src="lib/jquery.min.js"></script>
+    <!--build:js lib/jquery.min.js -->
+    <script src="src/js/jquery.min.js"></script>
+    <!-- endbuild --> 
     
-    <script src="lib/bootstrap.min.js"></script>
+    <!--build:js lib/bootstrap.min.js -->
+    <script src="src/js/bootstrap.min.js"></script>
+    <!-- endbuild -->   
     
-    <script src="js/files.JSON"></script>
+    <!--build:js js/files.JSON -->
+    <script src="src/js/files.JSON"></script>
+    <!-- endbuild --> 
   
 </head> 
 <body class="container-fluid background">
@@ -105,6 +121,16 @@
             </div>
         </div>
         <div ng-include="'src/html/footer.html'"></div>
+        <script>
+            var app = angular.module('myApp', [ ]);
+    app.controller('technologiesCtrl',['$scope', '$http', '$log', '$location', '$interval', function($scope, $http, $log, $location, $interval) {
+        $http.get("../src/js/files.JSON").then(function(response) {
+            $scope.myData = response.data;
+            $log.info("new value:", $scope.myData);
+            $scope.currentSize = $scope.myData[2];    
+            $log.info("new value:", $scope.currentSize);
+        });
+    }]);
+        </script>
     </body>
 </html>
-    
